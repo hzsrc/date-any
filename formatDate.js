@@ -1,5 +1,6 @@
 module.exports = function formatDate(date0, format) {
     if (!date0) return ''
+    if (!format) format = 'yyyy-MM-dd';
     if (typeof date0 === 'string') {
         date0 = date0.replace(/(:\d+)\.\d+$/, '$1'); //IE 不能转换2017-12-28 10:43:02.0
     }
