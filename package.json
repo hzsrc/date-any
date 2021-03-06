@@ -6,10 +6,8 @@
   "scripts": {
     "test": "node test/index.js"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "keywords": [
     "date",
     "format",
@@ -26,5 +24,6 @@
   "readme": "README.md",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "repository": "https://github.com/hzsrc/date-any"
 }
