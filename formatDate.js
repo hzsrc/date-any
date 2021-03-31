@@ -2,6 +2,7 @@ var toDate = require('./toDate.js')
 module.exports = function formatDate(date0, format) {
     var date = toDate(date0, 1);
     if (isNaN(date)) return date0 || ''
+    if (!format) format = 'yyyy-MM-dd';
     var year = date.getFullYear(), month = date.getMonth() + 1, day = date.getDate();
     var hour = date.getHours(), minute = date.getMinutes(), second = date.getSeconds();
     var str = format.replace('yyyy', year).replace('yy', year.toString().slice(2));
