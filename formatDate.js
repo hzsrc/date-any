@@ -1,11 +1,13 @@
 var toDate = require('./toDate.js')
-module.exports = function formatDate(date0, format) {
+
+function formatDate(date0, format) {
     var date = toDate(date0, 1);
     if (isNaN(date)) return date0 || ''
     if (!format) format = 'yyyy-MM-dd';
     var year = date.getFullYear(), month = date.getMonth() + 1, day = date.getDate();
     var hour = date.getHours(), minute = date.getMinutes(), second = date.getSeconds();
-    var str = format.replace('yyyy', year).replace('yy', year.toString().slice(2));
+    var str = format.replace('yyyy', year).replace('yy', year.toString().slice(2))
+        .replace('ddd', formatDate.weekDays[date.getDay()]);
     str = toTx(str, 'M', month);
     str = toTx(str, 'd', day);
     str = toTx(str, 'H', hour);
@@ -21,3 +23,6 @@ module.exports = function formatDate(date0, format) {
         return str.replace(find + find, w2).replace(find, w1);
     }
 }
+
+formatDate.weekDays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+module.exports = formatDate
