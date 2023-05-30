@@ -4,7 +4,7 @@ function DateAny(format) {
     if (!format) format = 'yyyy-MM-dd';
     var regStr = format.replace(/([\-\\\?\(\)\{\}\[\]\^\$\+\.\*])/g, '\\$1'); //特殊符号转义
     var group = {}, index = 1, reg;
-    regStr = regStr.replace(/(dd?|yyyy|yy|MM?|HH?|mm|ss)/g, function (m) {
+    regStr = regStr.replace(/(dd?|yyyy|yy|MM?|HH?|mm?|ss?)/g, function (m) {
         switch (m) {
             case 'd':
             case 'dd':
@@ -22,9 +22,11 @@ function DateAny(format) {
             case 'HH':
                 group.hour = index++;
                 return '(\\d{1,2})'
+            case 'm':
             case 'mm':
                 group.minute = index++;
                 return '(\\d{1,2})'
+            case 's':
             case 'ss':
                 group.second = index++;
                 return '(\\d{1,2})'
