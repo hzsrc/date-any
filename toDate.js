@@ -8,6 +8,7 @@ module.exports = function toDate(date0, force) {
         var d = new Date(date0);
         if (!isNaN(d)) return d
         date0 = date0.replace(/(:\d+)\.\d+\S*$/, '$1'); //IE 不能转换2021-03-29T19:46:38.2867936+08:00
+        date0 = date0.replace(/\-/g, '/') //ios老版本不支持-分隔
     }
     return new Date(date0);
 }

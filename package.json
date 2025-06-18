@@ -1,6 +1,6 @@
 {
   "name": "date-any",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Date formatting and parsing like C#. C#风格的日期格式化与逆转. ",
   "main": "src/index.js",
   "scripts": {
